@@ -361,10 +361,12 @@ class ReactionTokenizer(object):
             elif i+5 <= len(sequence) and flag is not None:
                 bbox = self.sequence_to_bbox(sequence[i:i+5], scale)
                 if bbox is not None:
-                    # Compute confidence from decoder scores for this bbox's 5 tokens
+                    # Compute confidence from decoder log-prob scores for this bbox's 5 tokens
+                    # Scores are log-probabilities; convert to probability via exp(mean(log_probs))
                     if scores is not None:
                         bbox_scores = scores[i:i+5]
-                        bbox['confidence'] = sum(bbox_scores) / len(bbox_scores) if bbox_scores else 0.0
+                        mean_log_prob = np.mean(bbox_scores) if bbox_scores else -10.0
+                        bbox['confidence'] = float(np.exp(mean_log_prob))  # 0.0 to 1.0
                     cur_reaction[flag].append(bbox)
                     i += 4
             i += 1
