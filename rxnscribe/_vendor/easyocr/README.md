@@ -1,0 +1,1 @@
+Pure post-processing from EasyOCR 1.7.2 (Apache-2.0), with NAVER CRAFT code under MIT. craft_utils.py is unchanged; utils.py, imgproc.py and recognition.py contain the named original functions with only import lists reduced. Trailing whitespace was normalized without changing behavior.

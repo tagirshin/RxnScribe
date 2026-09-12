@@ -1,0 +1,10 @@
+# Versions used for checkpoint parity. Torch is only needed for export.
+onnxruntime==1.20.1
+numpy==1.26.4
+Pillow==9.5.0
+opencv-python-headless==4.11.0.86
+matplotlib==3.10.9
+rdkit==2026.3.2
+scipy==1.17.1
+protobuf==6.33.6
+coloredlogs==14.0

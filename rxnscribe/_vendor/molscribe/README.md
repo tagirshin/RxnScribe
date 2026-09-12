@@ -1,0 +1,1 @@
+Pure Python post-processing from thomas0809/MolScribe commit 7296a30413eb55436702011efdff78131f66d162 (MIT). tokenizer.py, chemistry.py and constants.py have only the SmilesPE import redirected to the vendored tokenizer; edges.py contains get_edge_prediction from model.py. Neural inference lives in rxnscribe/onnx.py. Trailing whitespace was normalized without changing behavior.

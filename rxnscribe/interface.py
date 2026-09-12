@@ -83,7 +83,8 @@ class RxnScribe:
         return molscribe
 
     def get_ocr_model(self):
-        reader = easyocr.Reader(['en'], gpu=(self.device.type == 'cuda'))
+        # PyTorch 2.6 CPU quantization produced garbled text on ARM in our parity corpus.
+        reader = easyocr.Reader(['en'], gpu=(self.device.type == 'cuda'), quantize=False)
         return reader
 
     def predict_images(self, input_images: List, batch_size=16, molscribe=False, ocr=False):

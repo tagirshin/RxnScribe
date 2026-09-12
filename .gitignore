@@ -1,2 +1,5 @@
 scripts/*.sh
 **/__pycache__
+local/
+*.egg-info/
+.pytest_cache/
